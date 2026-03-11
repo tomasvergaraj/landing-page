@@ -28,7 +28,6 @@ export default function About() {
                   <span>Imagen de la empresa</span>
                 </div>
               </div>
-              <div className="about__image-accent" />
             </div>
             <div className="about__highlights">
               {highlights.map(({ icon: Icon, label }) => (

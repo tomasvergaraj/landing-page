@@ -70,18 +70,6 @@
   text-transform: uppercase;
 }
 
-.about__image-accent {
-  position: absolute;
-  bottom: -12px;
-  right: -12px;
-  width: 120px;
-  height: 120px;
-  border: 3px solid var(--gold);
-  border-radius: 6px;
-  opacity: 0.2;
-  pointer-events: none;
-}
-
 .about__highlights {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -161,9 +149,6 @@
     text-align: center;
   }
 
-  .about__image-accent {
-    display: none;
-  }
 }
 
 @media (max-width: 480px) {
