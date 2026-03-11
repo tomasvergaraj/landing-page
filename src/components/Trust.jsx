@@ -2,7 +2,6 @@ import { Quote, Star } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import './Trust.css';
 
-/* CONTENIDO EDITABLE: Reemplazar con testimonios reales cuando estén disponibles */
 const testimonials = [
   {
     text: 'Excelente servicio y puntualidad. El hormigón llegó en perfectas condiciones y el equipo fue muy profesional en todo momento. Sin duda volveremos a trabajar con ellos.',
@@ -41,7 +40,7 @@ export default function Trust() {
         </div>
 
         <div className="trust__grid" ref={ref}>
-          {testimonials.map((t, i) => (
+          {testimonials.map((testimonial, i) => (
             <div
               key={i}
               className={`trust__card ${visible ? 'visible' : ''}`}
@@ -51,21 +50,20 @@ export default function Trust() {
                 <Quote size={24} />
               </div>
               <div className="trust__card-stars">
-                {Array.from({ length: t.rating }).map((_, si) => (
+                {Array.from({ length: testimonial.rating }).map((_, si) => (
                   <Star key={si} size={14} fill="var(--gold)" color="var(--gold)" />
                 ))}
               </div>
-              <p className="trust__card-text">{t.text}</p>
+              <p className="trust__card-text">{testimonial.text}</p>
               <div className="trust__card-author">
                 <div className="trust__card-avatar">
-                  {t.author.charAt(0)}
+                  {testimonial.author.charAt(0)}
                 </div>
                 <div>
-                  <strong>{t.author}</strong>
-                  <span>{t.role}</span>
+                  <strong>{testimonial.author}</strong>
+                  <span>{testimonial.role}</span>
                 </div>
               </div>
-              {/* NOTA: Estos testimonios son ejemplos editables */}
             </div>
           ))}
         </div>

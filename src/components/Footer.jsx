@@ -17,7 +17,6 @@ import {
 import WhatsAppIcon from './WhatsAppIcon';
 import './Footer.css';
 
-/* TikTok icon (lucide-react doesn't include it) */
 function TikTokIcon({ size = 18 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -27,12 +26,12 @@ function TikTokIcon({ size = 18 }) {
 }
 
 const quickLinks = [
-  { label: 'Inicio', href: '#hero' },
-  { label: 'Nosotros', href: '#nosotros' },
-  { label: 'Servicios', href: '#servicios' },
-  { label: 'Beneficios', href: '#beneficios' },
-  { label: 'Proceso', href: '#proceso' },
-  { label: 'Proyectos', href: '#proyectos' },
+  { label: 'Ir al inicio', href: '#hero' },
+  { label: 'Conoce la empresa', href: '#nosotros' },
+  { label: 'Explorar servicios', href: '#servicios' },
+  { label: 'Ver ventajas', href: '#beneficios' },
+  { label: 'Cómo trabajamos', href: '#proceso' },
+  { label: 'Ver proyectos', href: '#proyectos' },
 ];
 
 const serviceLinks = [
@@ -51,7 +50,6 @@ export default function Footer() {
       <div className="footer__top">
         <div className="container">
           <div className="footer__grid">
-            {/* Brand column */}
             <div className="footer__brand">
               <img
                 src={SITE_CONFIG.logoPath}
@@ -72,15 +70,19 @@ export default function Footer() {
                 <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                   <TikTokIcon size={18} />
                 </a>
-                <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <a
+                  href={getWhatsAppLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Escribir por WhatsApp a Bugueño Hormigones"
+                >
                   <WhatsAppIcon size={18} />
                 </a>
               </div>
             </div>
 
-            {/* Quick links */}
             <div className="footer__col">
-              <h4 className="footer__col-title">Enlaces</h4>
+              <p className="footer__col-title">Enlaces</p>
               <ul className="footer__links">
                 {quickLinks.map((link) => (
                   <li key={link.href}>
@@ -90,21 +92,19 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Services */}
             <div className="footer__col">
-              <h4 className="footer__col-title">Servicios</h4>
+              <p className="footer__col-title">Servicios</p>
               <ul className="footer__links">
-                {serviceLinks.map((s) => (
-                  <li key={s}>
-                    <a href="#servicios">{s}</a>
+                {serviceLinks.map((service) => (
+                  <li key={service}>
+                    <a href="#servicios">{service}</a>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Contact */}
             <div className="footer__col">
-              <h4 className="footer__col-title">Contacto</h4>
+              <p className="footer__col-title">Contacto</p>
               <ul className="footer__contact">
                 <li>
                   <MapPin size={16} />
@@ -130,7 +130,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
               >
                 <WhatsAppIcon size={16} />
-                WhatsApp
+                Cotizar por WhatsApp
               </a>
             </div>
           </div>

@@ -30,7 +30,7 @@ export default function FAQ() {
           <span className="section-label">Preguntas Frecuentes</span>
           <h2 className="section-title">Resuelve tus Dudas</h2>
           <p className="section-subtitle">
-            Encuentra respuesta a las consultas mas comunes sobre nuestros servicios y proceso de trabajo.
+            Encuentra respuesta a las consultas más comunes sobre nuestros servicios y proceso de trabajo.
           </p>
         </div>
 

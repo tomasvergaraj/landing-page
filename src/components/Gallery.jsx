@@ -2,7 +2,6 @@ import { Camera, HardHat, Truck, Building } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import './Gallery.css';
 
-/* CONTENIDO EDITABLE: Reemplazar placeholders con fotos reales */
 const galleryItems = [
   { icon: Truck, label: 'Flota de Mixers', caption: 'Despacho profesional a obra' },
   { icon: Building, label: 'Obra en Ejecución', caption: 'Proyectos habitacionales' },
@@ -20,8 +19,8 @@ export default function Gallery() {
       <div className="noise-overlay" />
       <div className="container">
         <div className="section-header">
-          <span className="section-label">Proyectos y Operación</span>
-          <h2 className="section-title">Presencia en Terreno</h2>
+          <span className="section-label">Proyectos y operación</span>
+          <h2 className="section-title">Despachos y obras en terreno</h2>
           <p className="section-subtitle">
             Nuestra flota, equipo y operación en acción. Cada imagen refleja nuestro
             compromiso con la calidad y la capacidad operativa que nos respalda.

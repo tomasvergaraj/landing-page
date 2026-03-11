@@ -26,7 +26,9 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [menuOpen]);
 
   const handleNavClick = () => setMenuOpen(false);
@@ -51,16 +53,18 @@ export default function Navbar() {
           ))}
           <div className="navbar__mobile-actions">
             <a href={getWhatsAppLink()} className="btn btn-whatsapp btn-sm" target="_blank" rel="noopener noreferrer">
-              <WhatsAppIcon size={16} /> WhatsApp
+              <WhatsAppIcon size={16} />
+              Abrir WhatsApp
             </a>
             <a href={getPhoneLink()} className="btn btn-outline btn-sm">
-              <Phone size={16} /> Llamar
+              <Phone size={16} />
+              Llamar
             </a>
           </div>
         </div>
 
         <div className="navbar__actions">
-          <a href={getPhoneLink()} className="navbar__phone" aria-label="Llamar">
+          <a href={getPhoneLink()} className="navbar__phone" aria-label="Llamar a Bugueño Hormigones">
             <Phone size={18} />
           </a>
           <a
@@ -70,7 +74,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
           >
             <WhatsAppIcon size={16} />
-            Cotizar Ahora
+            Solicitar cotización
           </a>
         </div>
 

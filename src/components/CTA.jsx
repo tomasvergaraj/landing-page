@@ -15,13 +15,11 @@ export default function CTA() {
       </div>
       <div className="container" ref={ref}>
         <div className={`cta__content ${visible ? 'visible' : ''}`}>
-          <span className="section-label">¿Listo Para Comenzar?</span>
-          <h2 className="cta__title">
-            Cotiza Hoy Tu Proyecto de Hormigón
-          </h2>
+          <span className="section-label">¿Listo para comenzar?</span>
+          <h2 className="cta__title">Cotiza hoy tu proyecto de hormigón</h2>
           <p className="cta__subtitle">
             Contáctanos ahora y recibe atención rápida y personalizada.
-            Estamos listos para ayudarte a construir con calidad y confianza.
+            Estamos listos para apoyar tu obra en toda la Quinta Región.
           </p>
           <div className="cta__buttons">
             <a
@@ -31,14 +29,14 @@ export default function CTA() {
               rel="noopener noreferrer"
             >
               <WhatsAppIcon size={20} />
-              Hablar por WhatsApp
+              Escribir por WhatsApp
             </a>
             <a href={getPhoneLink()} className="btn btn-primary">
               <Phone size={20} />
-              Llamar Ahora
+              Llamar al equipo
             </a>
             <a href="#servicios" className="btn btn-outline">
-              Ver Servicios
+              Ver soluciones
               <ArrowRight size={18} />
             </a>
           </div>

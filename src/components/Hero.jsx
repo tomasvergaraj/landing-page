@@ -18,18 +18,20 @@ export default function Hero() {
       <div className={`hero__content container ${visible ? 'visible' : ''}`}>
         <div className="hero__badge">
           <span className="hero__badge-dot" />
-          Hormigón Premezclado de Alta Calidad
+          Hormigón premezclado desde Hijuelas para toda la Quinta Región
         </div>
 
         <h1 className="hero__title">
-          Soluciones en<br />
-          <span className="hero__title-accent">Hormigón</span> para<br />
-          tus Proyectos
+          Hormigón premezclado
+          <br />
+          <span className="hero__title-accent">desde Hijuelas</span>
+          <br />
+          para tu obra
         </h1>
 
         <p className="hero__subtitle">
-          Compromiso, resistencia y puntualidad en cada entrega.
-          Atendemos constructoras, contratistas y particulares con la calidad que tu obra necesita.
+          Despacho a obra, asesoría técnica y atención rápida para constructoras,
+          contratistas y particulares en toda la Región de Valparaíso.
         </p>
 
         <div className="hero__actions">
@@ -40,10 +42,10 @@ export default function Hero() {
             rel="noopener noreferrer"
           >
             <WhatsAppIcon size={20} />
-            Cotizar por WhatsApp
+            Pedir cotización
           </a>
           <a href="#servicios" className="btn btn-outline">
-            Ver Servicios
+            Conocer servicios
             <ArrowRight size={18} />
           </a>
         </div>
@@ -66,11 +68,10 @@ export default function Hero() {
         </div>
       </div>
 
-      <a href="#nosotros" className="hero__scroll" aria-label="Scroll hacia abajo">
+      <a href="#nosotros" className="hero__scroll" aria-label="Ir a la sección Quiénes Somos">
         <ChevronDown size={24} />
       </a>
 
-      {/* Decorative elements */}
       <div className="hero__deco-line hero__deco-line--1" />
       <div className="hero__deco-line hero__deco-line--2" />
     </section>

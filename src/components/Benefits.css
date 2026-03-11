@@ -51,7 +51,7 @@
   border-color: var(--gold);
 }
 
-.benefits__text h3 {
+.benefits__text-title {
   font-family: var(--font-heading);
   font-size: 1.05rem;
   font-weight: 700;
@@ -61,7 +61,7 @@
   margin-bottom: 8px;
 }
 
-.benefits__text p {
+.benefits__text p:not(.benefits__text-title) {
   font-size: 0.9rem;
   color: var(--gray-400);
   line-height: 1.7;

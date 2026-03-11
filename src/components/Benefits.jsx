@@ -50,7 +50,7 @@ export default function Benefits() {
       <div className="pattern-overlay" />
       <div className="container">
         <div className="section-header">
-          <span className="section-label">¿Por Qué Elegirnos?</span>
+          <span className="section-label">¿Por qué elegirnos?</span>
           <h2 className="section-title">Tu Proyecto Merece el Mejor Respaldo</h2>
           <p className="section-subtitle">
             Cada detalle cuenta cuando se trata de la base de tu construcción.
@@ -59,11 +59,11 @@ export default function Benefits() {
         </div>
 
         <div className="benefits__grid" ref={ref}>
-          {benefits.map((b, i) => {
-            const Icon = b.icon;
+          {benefits.map((benefit, i) => {
+            const Icon = benefit.icon;
             return (
               <div
-                key={b.title}
+                key={benefit.title}
                 className={`benefits__item ${visible ? 'visible' : ''}`}
                 style={{ transitionDelay: `${i * 0.08}s` }}
               >
@@ -71,8 +71,8 @@ export default function Benefits() {
                   <Icon size={24} strokeWidth={1.8} />
                 </div>
                 <div className="benefits__text">
-                  <h3>{b.title}</h3>
-                  <p>{b.desc}</p>
+                  <p className="benefits__text-title">{benefit.title}</p>
+                  <p>{benefit.desc}</p>
                 </div>
               </div>
             );

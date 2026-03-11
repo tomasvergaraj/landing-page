@@ -43,7 +43,7 @@ export default function Process() {
       <div className="noise-overlay" />
       <div className="container">
         <div className="section-header">
-          <span className="section-label">Cómo Trabajamos</span>
+          <span className="section-label">Cómo trabajamos</span>
           <h2 className="section-title">Un Proceso Simple, Eficiente y Confiable</h2>
           <p className="section-subtitle">
             Desde tu primer contacto hasta la entrega final, cada paso está diseñado
@@ -68,7 +68,7 @@ export default function Process() {
                   <div className="process__step-icon">
                     <Icon size={22} />
                   </div>
-                  <h3 className="process__step-title">{step.title}</h3>
+                  <p className="process__step-title">{step.title}</p>
                   <p className="process__step-desc">{step.desc}</p>
                 </div>
               </div>

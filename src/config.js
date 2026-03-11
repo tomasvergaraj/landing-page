@@ -16,12 +16,12 @@ export const SEO_CONFIG = {
   countryCode: 'CL',
   siteUrl: '',
   defaultTitle:
-    'Bugue\u00f1o Hormigones | Hormig\u00f3n premezclado en Hijuelas y toda la Quinta Region',
+    'Bugue\u00f1o Hormigones | Hormig\u00f3n premezclado desde Hijuelas',
   defaultDescription:
-    'Empresa de Hijuelas dedicada a la venta y despacho de hormig\u00f3n premezclado para constructoras, contratistas y particulares en toda la Quinta Region. Cotiza por WhatsApp, telefono o correo.',
+    'Hormig\u00f3n premezclado desde Hijuelas para obras en toda la Quinta Regi\u00f3n. Despacho a obra, asesor\u00eda t\u00e9cnica y cotizaci\u00f3n por WhatsApp.',
   ogImagePath: '/logo.png',
   themeColor: '#0A0A0A',
-  serviceAreas: ['Hijuelas', 'Quinta Region', 'Region de Valparaiso'],
+  serviceAreas: ['Hijuelas', 'Quinta Regi\u00f3n', 'Regi\u00f3n de Valpara\u00edso'],
   openingHours: [
     {
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
@@ -40,12 +40,12 @@ export const CONTACT_INFO = {
   phone: '+56 9 9047 8670',
   phoneClean: '56990478670',
   whatsapp: '56990478670',
-  whatsappMessage: 'Hola, me gustaria cotizar hormigon para mi proyecto.',
+  whatsappMessage: 'Hola, me gustar\u00eda cotizar hormig\u00f3n para mi proyecto.',
   email: 'contacto@buguenohormigones.cl',
-  address: 'Hijuelas, Region de Valparaiso, Chile',
+  address: 'Hijuelas, Regi\u00f3n de Valpara\u00edso, Chile',
   city: 'Hijuelas',
-  region: 'Valparaiso',
-  schedule: 'Lunes a Viernes: 08:00 - 18:00 | Sabados: 08:00 - 13:00',
+  region: 'Valpara\u00edso',
+  schedule: 'Lunes a Viernes: 08:00 - 18:00 | S\u00e1bados: 08:00 - 13:00',
 };
 
 export const SOCIAL_LINKS = {

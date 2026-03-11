@@ -33,10 +33,10 @@ export default function Services() {
       <div className="container">
         <div className="section-header">
           <span className="section-label">Nuestros Servicios</span>
-          <h2 className="section-title">Soluciones Completas en Hormigon</h2>
+          <h2 className="section-title">Venta y despacho de hormigón</h2>
           <p className="section-subtitle">
             Ofrecemos un servicio integral que cubre todas las necesidades de tu obra,
-            desde la asesoria tecnica hasta la entrega final en terreno.
+            desde la asesoría técnica hasta la entrega final en terreno.
           </p>
         </div>
 
@@ -52,7 +52,7 @@ export default function Services() {
                 <div className="services__card-icon">
                   <Icon size={28} />
                 </div>
-                <h3 className="services__card-title">{service.title}</h3>
+                <p className="services__card-title">{service.title}</p>
                 <p className="services__card-desc">{service.description}</p>
                 <div className="services__card-line" />
               </div>
