@@ -65,8 +65,8 @@ Todos los datos de contacto, redes sociales y textos están centralizados en `sr
 ```js
 // Editar datos de contacto
 export const CONTACT_INFO = {
-  phone: '+56 9 1234 5678',
-  whatsapp: '56912345678',
+  phone: '+56 9 9047 8670',
+  whatsapp: '56990478670',
   email: 'contacto@bugueñohormigones.cl',
   address: 'Av. Industrial 1234, Quillota, Valparaíso, Chile',
   schedule: 'Lunes a Viernes: 08:00 - 18:00 | Sábados: 08:00 - 13:00',

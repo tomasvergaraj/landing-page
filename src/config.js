@@ -37,9 +37,9 @@ export const SEO_CONFIG = {
 };
 
 export const CONTACT_INFO = {
-  phone: '+56 9 1234 5678',
-  phoneClean: '56912345678',
-  whatsapp: '56912345678',
+  phone: '+56 9 9047 8670',
+  phoneClean: '56990478670',
+  whatsapp: '56990478670',
   whatsappMessage: 'Hola, me gustaria cotizar hormigon para mi proyecto.',
   email: 'contacto@buguenohormigones.cl',
   address: 'Av. Industrial 1234, Quillota, Valparaiso, Chile',
