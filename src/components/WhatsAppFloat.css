@@ -1,0 +1,131 @@
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 900;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  animation: wa-slide-in 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes wa-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.wa-float__btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.wa-float__icon {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.wa-float__btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+}
+
+.wa-float__pulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  animation: wa-pulse 2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes wa-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.wa-float__tooltip {
+  background: var(--white);
+  color: var(--black);
+  padding: 12px 38px 12px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  position: relative;
+  animation: tooltip-in 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes tooltip-in {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.wa-float__tooltip::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: var(--white);
+}
+
+.wa-float__tooltip-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: none;
+  color: var(--gray-600);
+  padding: 4px;
+  border-radius: 50%;
+  line-height: 0;
+}
+
+.wa-float__tooltip-close:hover {
+  color: var(--black);
+}
+
+@media (max-width: 600px) {
+  .wa-float {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .wa-float__btn {
+    width: 54px;
+    height: 54px;
+  }
+
+  .wa-float__tooltip {
+    display: none;
+  }
+}

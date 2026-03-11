@@ -1,0 +1,116 @@
+.services {
+  background: var(--black);
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.services__card {
+  background: var(--black-card);
+  border: 1px solid var(--black-border);
+  border-radius: 6px;
+  padding: 40px 32px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-base);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.services__card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.services__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.services__card:hover {
+  border-color: var(--gold);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 60px rgba(232, 168, 23, 0.06);
+}
+
+.services__card:hover::before {
+  transform: scaleX(1);
+}
+
+.services__card-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(232, 168, 23, 0.1);
+  border: 1px solid rgba(232, 168, 23, 0.2);
+  border-radius: 8px;
+  color: var(--gold);
+  margin-bottom: 24px;
+  transition: all var(--transition-base);
+}
+
+.services__card:hover .services__card-icon {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+
+.services__card-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--white);
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.services__card-desc {
+  font-size: 0.93rem;
+  color: var(--gray-400);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.services__card-line {
+  width: 40px;
+  height: 2px;
+  background: var(--gray-800);
+  margin-top: 24px;
+  transition: all var(--transition-base);
+}
+
+.services__card:hover .services__card-line {
+  width: 60px;
+  background: var(--gold);
+}
+
+@media (max-width: 900px) {
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .services__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .services__card {
+    padding: 32px 24px 28px;
+  }
+}

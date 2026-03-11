@@ -1,0 +1,152 @@
+.footer {
+  background: var(--black-soft);
+  border-top: 1px solid var(--black-border);
+}
+
+.footer__top {
+  padding: 72px 0 48px;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 0.8fr 1.2fr;
+  gap: 48px;
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer__logo {
+  width: 240px;
+  max-width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.footer__brand-text {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  line-height: 1.7;
+  font-weight: 300;
+  max-width: 320px;
+}
+
+.footer__social {
+  display: flex;
+  gap: 12px;
+}
+
+.footer__social a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--black-border);
+  color: var(--gray-400);
+  transition: all var(--transition-fast);
+}
+
+.footer__social a:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.footer__col-title {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--gold);
+  display: inline-block;
+}
+
+.footer__links li {
+  margin-bottom: 12px;
+}
+
+.footer__links a {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  font-weight: 300;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.footer__links a:hover {
+  color: var(--gold);
+  padding-left: 6px;
+}
+
+.footer__contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+  color: var(--gray-400);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.footer__contact li svg {
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.footer__contact a:hover {
+  color: var(--gold);
+}
+
+.footer__wa-btn {
+  margin-top: 16px;
+}
+
+.footer__bottom {
+  border-top: 1px solid var(--black-border);
+  padding: 24px 0;
+  text-align: center;
+}
+
+.footer__bottom p {
+  font-size: 0.82rem;
+  color: var(--gray-600);
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 900px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .footer__top {
+    padding: 48px 0 36px;
+  }
+
+  .footer__brand-text {
+    max-width: 100%;
+  }
+
+  .footer__logo {
+    width: 200px;
+  }
+}
