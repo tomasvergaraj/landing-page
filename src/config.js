@@ -8,7 +8,6 @@ export const SITE_CONFIG = {
   tagline: 'Hormig\u00f3n de calidad para tus proyectos',
   slogan: 'Compromiso, resistencia y puntualidad en cada entrega',
   logoPath: '/logo-horizontal.png',
-  logoMarkPath: '/logo-mark.png',
 };
 
 export const SEO_CONFIG = {

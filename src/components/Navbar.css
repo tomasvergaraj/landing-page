@@ -32,15 +32,9 @@
   transition: width var(--transition-base);
 }
 
-.navbar__logo-picture {
-  display: block;
-  width: 100%;
-}
-
 .navbar__logo img {
   width: 100%;
   height: auto;
-  display: block;
 }
 
 .navbar--scrolled .navbar__logo {
@@ -197,24 +191,6 @@
     inset: 0;
     background: rgba(0, 0, 0, 0.6);
     z-index: 999;
-  }
-}
-
-@media (max-width: 640px) {
-  .navbar {
-    padding: 12px 0;
-  }
-
-  .navbar--scrolled {
-    padding: 8px 0;
-  }
-
-  .navbar__logo {
-    width: 72px;
-  }
-
-  .navbar--scrolled .navbar__logo {
-    width: 64px;
   }
 }
 
