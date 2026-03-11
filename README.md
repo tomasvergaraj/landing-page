@@ -68,7 +68,7 @@ export const CONTACT_INFO = {
   phone: '+56 9 9047 8670',
   whatsapp: '56990478670',
   email: 'contacto@bugueñohormigones.cl',
-  address: 'Av. Industrial 1234, Quillota, Valparaíso, Chile',
+  address: 'Hijuelas, Region de Valparaiso, Chile',
   schedule: 'Lunes a Viernes: 08:00 - 18:00 | Sábados: 08:00 - 13:00',
 };
 

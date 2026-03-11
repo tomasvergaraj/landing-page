@@ -17,7 +17,7 @@ export const faqs = [
   },
   {
     q: 'Cual es su zona de cobertura?',
-    a: 'Operamos principalmente en la Region de Valparaiso y zonas aledanas. Consulta con nuestro equipo la disponibilidad de despacho para tu ubicacion especifica.',
+    a: 'Nuestra empresa es de Hijuelas y realizamos despachos de hormigon en toda la Quinta Region. Consulta con nuestro equipo para coordinar la entrega segun tu ubicacion y requerimientos de obra.',
   },
   {
     q: 'Ofrecen asesoria tecnica?',

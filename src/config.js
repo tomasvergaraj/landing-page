@@ -16,12 +16,12 @@ export const SEO_CONFIG = {
   countryCode: 'CL',
   siteUrl: '',
   defaultTitle:
-    'Bugue\u00f1o Hormigones | Venta y despacho de hormig\u00f3n premezclado en Quillota',
+    'Bugue\u00f1o Hormigones | Hormig\u00f3n premezclado en Hijuelas y toda la Quinta Region',
   defaultDescription:
-    'Venta y despacho de hormig\u00f3n premezclado para constructoras, contratistas y particulares en Quillota y la Region de Valparaiso. Cotiza por WhatsApp, telefono o correo.',
+    'Empresa de Hijuelas dedicada a la venta y despacho de hormig\u00f3n premezclado para constructoras, contratistas y particulares en toda la Quinta Region. Cotiza por WhatsApp, telefono o correo.',
   ogImagePath: '/logo-horizontal.png',
   themeColor: '#0A0A0A',
-  serviceAreas: ['Quillota', 'Valparaiso', 'Region de Valparaiso'],
+  serviceAreas: ['Hijuelas', 'Quinta Region', 'Region de Valparaiso'],
   openingHours: [
     {
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
@@ -42,8 +42,8 @@ export const CONTACT_INFO = {
   whatsapp: '56990478670',
   whatsappMessage: 'Hola, me gustaria cotizar hormigon para mi proyecto.',
   email: 'contacto@buguenohormigones.cl',
-  address: 'Av. Industrial 1234, Quillota, Valparaiso, Chile',
-  city: 'Quillota',
+  address: 'Hijuelas, Region de Valparaiso, Chile',
+  city: 'Hijuelas',
   region: 'Valparaiso',
   schedule: 'Lunes a Viernes: 08:00 - 18:00 | Sabados: 08:00 - 13:00',
 };
