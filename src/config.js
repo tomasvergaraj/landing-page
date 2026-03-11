@@ -8,6 +8,7 @@ export const SITE_CONFIG = {
   tagline: 'Hormig\u00f3n de calidad para tus proyectos',
   slogan: 'Compromiso, resistencia y puntualidad en cada entrega',
   logoPath: '/logo-horizontal.png',
+  logoMarkPath: '/logo-mark.png',
 };
 
 export const SEO_CONFIG = {
@@ -19,7 +20,7 @@ export const SEO_CONFIG = {
     'Bugue\u00f1o Hormigones | Hormig\u00f3n premezclado en Hijuelas y toda la Quinta Region',
   defaultDescription:
     'Empresa de Hijuelas dedicada a la venta y despacho de hormig\u00f3n premezclado para constructoras, contratistas y particulares en toda la Quinta Region. Cotiza por WhatsApp, telefono o correo.',
-  ogImagePath: '/logo-horizontal.png',
+  ogImagePath: '/logo.png',
   themeColor: '#0A0A0A',
   serviceAreas: ['Hijuelas', 'Quinta Region', 'Region de Valparaiso'],
   openingHours: [

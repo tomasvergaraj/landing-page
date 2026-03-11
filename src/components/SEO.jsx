@@ -207,6 +207,22 @@ export default function SEO() {
       property: 'og:image',
       content: imageUrl,
     });
+    upsertMeta('meta[property="og:image:secure_url"]', {
+      property: 'og:image:secure_url',
+      content: imageUrl,
+    });
+    upsertMeta('meta[property="og:image:type"]', {
+      property: 'og:image:type',
+      content: 'image/png',
+    });
+    upsertMeta('meta[property="og:image:width"]', {
+      property: 'og:image:width',
+      content: '640',
+    });
+    upsertMeta('meta[property="og:image:height"]', {
+      property: 'og:image:height',
+      content: '641',
+    });
     upsertMeta('meta[property="og:image:alt"]', {
       property: 'og:image:alt',
       content: `${SITE_CONFIG.companyName} logo`,
@@ -226,6 +242,10 @@ export default function SEO() {
     upsertMeta('meta[name="twitter:image"]', {
       name: 'twitter:image',
       content: imageUrl,
+    });
+    upsertMeta('meta[name="twitter:image:alt"]', {
+      name: 'twitter:image:alt',
+      content: `${SITE_CONFIG.companyName} logo`,
     });
 
     upsertLink('link[rel="canonical"]', {

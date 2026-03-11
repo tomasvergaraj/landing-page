@@ -35,7 +35,10 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner container">
         <a href="#hero" className="navbar__logo" aria-label="Ir al inicio">
-          <img src={SITE_CONFIG.logoPath} alt={SITE_CONFIG.companyName} />
+          <picture className="navbar__logo-picture">
+            <source media="(max-width: 640px)" srcSet={SITE_CONFIG.logoMarkPath} />
+            <img src={SITE_CONFIG.logoPath} alt={SITE_CONFIG.companyName} />
+          </picture>
         </a>
 
         <div className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>

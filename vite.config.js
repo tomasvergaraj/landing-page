@@ -37,47 +37,36 @@ function buildSitemap(siteUrl) {
 function seoFilesPlugin(siteUrl) {
   return {
     name: 'seo-files',
-    transformIndexHtml() {
+    transformIndexHtml(html) {
       if (!siteUrl) {
-        return undefined;
+        return html;
       }
 
-      return [
-        {
-          tag: 'link',
-          attrs: {
-            rel: 'canonical',
-            href: `${siteUrl}/`,
-          },
-          injectTo: 'head',
-        },
-        {
-          tag: 'link',
-          attrs: {
-            rel: 'alternate',
-            hreflang: 'es-CL',
-            href: `${siteUrl}/`,
-          },
-          injectTo: 'head',
-        },
-        {
-          tag: 'link',
-          attrs: {
-            rel: 'alternate',
-            hreflang: 'x-default',
-            href: `${siteUrl}/`,
-          },
-          injectTo: 'head',
-        },
-        {
-          tag: 'meta',
-          attrs: {
-            property: 'og:url',
-            content: `${siteUrl}/`,
-          },
-          injectTo: 'head',
-        },
-      ];
+      const absoluteLogoUrl = `${siteUrl}/logo.png`;
+
+      return html
+        .replace(
+          '<meta property="og:image" content="/logo.png" />',
+          `<meta property="og:image" content="${absoluteLogoUrl}" />`,
+        )
+        .replace(
+          '<meta property="og:image:secure_url" content="/logo.png" />',
+          `<meta property="og:image:secure_url" content="${absoluteLogoUrl}" />`,
+        )
+        .replace(
+          '<meta name="twitter:image" content="/logo.png" />',
+          `<meta name="twitter:image" content="${absoluteLogoUrl}" />`,
+        )
+        .replace(
+          '</head>',
+          [
+            `    <link rel="canonical" href="${siteUrl}/">`,
+            `    <link rel="alternate" hreflang="es-CL" href="${siteUrl}/">`,
+            `    <link rel="alternate" hreflang="x-default" href="${siteUrl}/">`,
+            `    <meta property="og:url" content="${siteUrl}/">`,
+            '  </head>',
+          ].join('\n'),
+        );
     },
     closeBundle() {
       const distDir = path.resolve(process.cwd(), 'dist');
