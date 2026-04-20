@@ -32,11 +32,11 @@ export default function Services() {
       <div className="noise-overlay" />
       <div className="container">
         <div className="section-header">
-          <span className="section-label">Nuestros Servicios</span>
-          <h2 className="section-title">Venta y despacho de hormigón</h2>
+          <span className="section-label">Soluciones</span>
+          <h2 className="section-title">Lo que hoy ofrece la planta</h2>
           <p className="section-subtitle">
-            Ofrecemos un servicio integral que cubre todas las necesidades de tu obra,
-            desde la asesoría técnica hasta la entrega final en terreno.
+            Información concreta para cotizar con claridad: tipos de
+            hormigón, despacho, asesoría técnica y cobertura real.
           </p>
         </div>
 

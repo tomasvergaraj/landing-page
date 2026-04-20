@@ -12,33 +12,33 @@ import './Benefits.css';
 const benefits = [
   {
     icon: ShieldCheck,
-    title: 'Calidad Certificada',
-    desc: 'Hormigón premezclado que cumple con los más altos estándares de resistencia y durabilidad para cada tipo de proyecto.',
-  },
-  {
-    icon: Timer,
-    title: 'Puntualidad Garantizada',
-    desc: 'Cumplimos con los plazos de entrega acordados. Sabemos que el tiempo en obra es dinero, y no te fallamos.',
-  },
-  {
-    icon: HeartHandshake,
-    title: 'Atención Personalizada',
-    desc: 'Cada cliente recibe un trato directo y cercano. Nos involucramos en tu proyecto para darte la mejor solución.',
-  },
-  {
-    icon: Target,
-    title: 'Experiencia Comprobada',
-    desc: 'Más de una década en el rubro nos respalda. Hemos participado en cientos de proyectos de diversa envergadura.',
-  },
-  {
-    icon: Zap,
-    title: 'Respuesta Rápida',
-    desc: 'Cotizaciones ágiles y coordinación eficiente. Desde tu primer contacto hasta la entrega, trabajamos con rapidez.',
+    title: 'Planta certificada',
+    desc: 'Trabajamos con una planta certificada para ofrecer un servicio respaldado desde el origen.',
   },
   {
     icon: CheckCircle2,
-    title: 'Compromiso Total',
-    desc: 'Nuestro nombre está en cada entrega. Trabajamos con responsabilidad y transparencia de principio a fin.',
+    title: 'Hormigones certificados',
+    desc: 'Contamos con hormigones certificados y distintas alternativas para responder a diferentes necesidades de obra.',
+  },
+  {
+    icon: Target,
+    title: 'Tipos según tu proyecto',
+    desc: 'Te ayudamos a definir el tipo de hormigón que mejor se ajusta al vaciado, la resistencia y la etapa constructiva.',
+  },
+  {
+    icon: Timer,
+    title: 'Entrega coordinada',
+    desc: 'La referencia operativa es de 20 minutos por metro cúbico, facilitando la planificación del vaciado.',
+  },
+  {
+    icon: HeartHandshake,
+    title: 'Empresas y particulares',
+    desc: 'Atendemos a empresas y particulares con la misma cercanía, seguimiento y disposición para resolver dudas.',
+  },
+  {
+    icon: Zap,
+    title: 'Pagos y cobertura',
+    desc: 'Recibimos efectivo, transferencia, débito y crédito, con cobertura en toda la Quinta Región.',
   },
 ];
 
@@ -50,11 +50,11 @@ export default function Benefits() {
       <div className="pattern-overlay" />
       <div className="container">
         <div className="section-header">
-          <span className="section-label">¿Por qué elegirnos?</span>
-          <h2 className="section-title">Tu Proyecto Merece el Mejor Respaldo</h2>
+          <span className="section-label">Datos clave</span>
+          <h2 className="section-title">Información clara para coordinar mejor</h2>
           <p className="section-subtitle">
-            Cada detalle cuenta cuando se trata de la base de tu construcción.
-            Con nosotros, tienes la certeza de un servicio sólido y profesional.
+            Antes de pedir tu hormigón, estos son los puntos que más
+            consultan nuestros clientes y que hoy ya puedes revisar en un solo lugar.
           </p>
         </div>
 

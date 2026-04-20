@@ -1,32 +1,32 @@
 export const serviceItems = [
   {
-    title: 'Venta de Hormig\u00f3n',
+    title: 'Diferentes tipos de hormigón',
     description:
-      'Hormig\u00f3n premezclado de alta calidad en diferentes resistencias y dosificaciones, adaptado a los requerimientos espec\u00edficos de tu proyecto.',
+      'Ofrecemos distintas alternativas de hormigón según la necesidad estructural, el vaciado y el tipo de proyecto.',
   },
   {
-    title: 'Despacho a Obra',
+    title: 'Hormigones certificados',
     description:
-      'Servicio de transporte y entrega directa en obra con flota propia de mixers. Coordinaci\u00f3n precisa para que tu proyecto no se detenga.',
+      'Cada entrega cuenta con el respaldo de hormigones certificados para trabajar con seguridad y confianza en obra.',
   },
   {
-    title: 'Proyectos Habitacionales',
+    title: 'Despacho coordinado',
     description:
-      'Soluciones integrales de hormig\u00f3n para proyectos de vivienda, edificaci\u00f3n y desarrollo inmobiliario con vol\u00famenes ajustados a cada etapa.',
+      'Programamos la entrega con una referencia de 20 minutos por metro cúbico para ayudarte a ordenar mejor la faena.',
   },
   {
-    title: 'Obras Menores y Mayores',
+    title: 'Atención a empresas y particulares',
     description:
-      'Desde radieres y fundaciones residenciales hasta losas y estructuras de gran envergadura. Nos adaptamos a la escala de tu obra.',
+      'Trabajamos con constructoras, contratistas, maestros y clientes particulares con la misma seriedad y seguimiento.',
   },
   {
-    title: 'Asesor\u00eda T\u00e9cnica',
+    title: 'Asesoría técnica',
     description:
-      'Orientaci\u00f3n profesional en la selecci\u00f3n del tipo de hormig\u00f3n adecuado, dosificaci\u00f3n, resistencia y consideraciones t\u00e9cnicas para tu proyecto.',
+      'Entregamos apoyo técnico a través de laboratoristas para orientar la selección del hormigón y resolver dudas.',
   },
   {
-    title: 'Atenci\u00f3n Integral',
+    title: 'Cobertura en toda la Quinta Región',
     description:
-      'Servicio personalizado para constructoras, contratistas y particulares. Cada cliente recibe atenci\u00f3n directa y seguimiento dedicado.',
+      'Despachamos desde Hijuelas hacia toda la Región de Valparaíso, coordinando cada entrega según tu ubicación.',
   },
 ];

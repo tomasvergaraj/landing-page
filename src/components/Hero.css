@@ -151,6 +151,13 @@
   background: var(--black-border);
 }
 
+.hero__subtitle--micro {
+  max-width: 720px;
+  margin: 26px auto 0;
+  font-size: 0.95rem;
+  color: var(--gray-300);
+}
+
 .hero__scroll {
   position: absolute;
   bottom: 32px;
@@ -228,6 +235,11 @@
 
   .hero__stat-label {
     font-size: 0.65rem;
+  }
+
+  .hero__subtitle--micro {
+    margin-top: 22px;
+    font-size: 0.9rem;
   }
 
   .hero__deco-line {

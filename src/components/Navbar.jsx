@@ -8,9 +8,10 @@ const navLinks = [
   { label: 'Inicio', href: '#hero' },
   { label: 'Nosotros', href: '#nosotros' },
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Beneficios', href: '#beneficios' },
-  { label: 'Proceso', href: '#proceso' },
-  { label: 'Proyectos', href: '#proyectos' },
+  { label: 'Respaldo', href: '#respaldo' },
+  { label: 'Galería', href: '#proyectos' },
+  { label: 'Ubicación', href: '#ubicacion' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Contacto', href: '#contacto' },
 ];
 
@@ -52,7 +53,12 @@ export default function Navbar() {
             </a>
           ))}
           <div className="navbar__mobile-actions">
-            <a href={getWhatsAppLink()} className="btn btn-whatsapp btn-sm" target="_blank" rel="noopener noreferrer">
+            <a
+              href={getWhatsAppLink()}
+              className="btn btn-whatsapp btn-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <WhatsAppIcon size={16} />
               Abrir WhatsApp
             </a>
@@ -64,7 +70,11 @@ export default function Navbar() {
         </div>
 
         <div className="navbar__actions">
-          <a href={getPhoneLink()} className="navbar__phone" aria-label="Llamar a Bugueño Hormigones">
+          <a
+            href={getPhoneLink()}
+            className="navbar__phone"
+            aria-label="Llamar a Bugueño Hormigones"
+          >
             <Phone size={18} />
           </a>
           <a

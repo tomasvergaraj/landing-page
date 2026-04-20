@@ -1,4 +1,10 @@
-import { MessageSquare, FileSearch, CalendarClock, Truck, ThumbsUp } from 'lucide-react';
+import {
+  MessageSquare,
+  FileSearch,
+  CalendarClock,
+  Truck,
+  ThumbsUp,
+} from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import './Process.css';
 
@@ -6,32 +12,32 @@ const steps = [
   {
     icon: MessageSquare,
     number: '01',
-    title: 'Contacto',
-    desc: 'Comunícate con nosotros por WhatsApp, teléfono o correo. Cuéntanos sobre tu proyecto y necesidades.',
+    title: 'Contacto y datos de obra',
+    desc: 'Escríbenos por WhatsApp, llámanos o envía correo con la ubicación, el volumen y la fecha estimada para tu vaciado.',
   },
   {
     icon: FileSearch,
     number: '02',
-    title: 'Evaluación y Cotización',
-    desc: 'Analizamos los requerimientos de tu obra y te entregamos una cotización detallada y transparente.',
+    title: 'Definición del hormigón',
+    desc: 'Revisamos el tipo de hormigón que necesitas y, si hace falta, apoyamos la decisión con asesoría técnica.',
   },
   {
     icon: CalendarClock,
     number: '03',
-    title: 'Coordinación',
-    desc: 'Planificamos la logística de entrega según los tiempos y condiciones de tu proyecto.',
+    title: 'Programación del despacho',
+    desc: 'Confirmamos horario, volumen, forma de pago y coordinación logística para que la entrega llegue alineada con tu obra.',
   },
   {
     icon: Truck,
     number: '04',
-    title: 'Despacho y Entrega',
-    desc: 'Nuestros mixers llegan puntualmente a tu obra con el hormigón en las condiciones óptimas.',
+    title: 'Entrega en terreno',
+    desc: 'Despachamos en toda la Quinta Región con una referencia operativa de 20 minutos por metro cúbico.',
   },
   {
     icon: ThumbsUp,
     number: '05',
-    title: 'Seguimiento',
-    desc: 'Realizamos seguimiento post-entrega para asegurar tu satisfacción total con nuestro servicio.',
+    title: 'Soporte técnico',
+    desc: 'Complementamos la entrega con apoyo de laboratoristas cuando el proyecto requiere una revisión más técnica.',
   },
 ];
 
@@ -43,11 +49,11 @@ export default function Process() {
       <div className="noise-overlay" />
       <div className="container">
         <div className="section-header">
-          <span className="section-label">Cómo trabajamos</span>
-          <h2 className="section-title">Un Proceso Simple, Eficiente y Confiable</h2>
+          <span className="section-label">Cómo coordinamos tu pedido</span>
+          <h2 className="section-title">Un flujo simple para cotizar y programar</h2>
           <p className="section-subtitle">
-            Desde tu primer contacto hasta la entrega final, cada paso está diseñado
-            para que tu experiencia sea fluida y sin complicaciones.
+            Desde el primer mensaje hasta la entrega, ordenamos cada paso para que
+            tengas claridad sobre tiempos, tipo de hormigón y forma de atención.
           </p>
         </div>
 

@@ -1,8 +1,24 @@
+import { Fragment } from 'react';
 import { ChevronDown, ArrowRight } from 'lucide-react';
-import { getWhatsAppLink } from '../config';
+import { CONTACT_INFO, getWhatsAppLink } from '../config';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import WhatsAppIcon from './WhatsAppIcon';
 import './Hero.css';
+
+const heroStats = [
+  {
+    value: 'CERT.',
+    label: 'Planta y hormigones certificados',
+  },
+  {
+    value: '20',
+    label: 'Minutos por m3',
+  },
+  {
+    value: 'V REG.',
+    label: 'Cobertura regional',
+  },
+];
 
 export default function Hero() {
   const [ref, visible] = useScrollAnimation(0.1);
@@ -18,20 +34,21 @@ export default function Hero() {
       <div className={`hero__content container ${visible ? 'visible' : ''}`}>
         <div className="hero__badge">
           <span className="hero__badge-dot" />
-          Hormigón premezclado desde Hijuelas para toda la Quinta Región
+          Bugueño Hormigones V Región
         </div>
 
         <h1 className="hero__title">
-          Hormigón premezclado
+          Hormigón
           <br />
-          <span className="hero__title-accent">desde Hijuelas</span>
+          <span className="hero__title-accent">certificado</span>
           <br />
           para tu obra
         </h1>
 
         <p className="hero__subtitle">
-          Despacho a obra, asesoría técnica y atención rápida para constructoras,
-          contratistas y particulares en toda la Región de Valparaíso.
+          Bugueño Hormigones V Región ofrece diferentes tipos de hormigón, despacho coordinado desde
+          Hijuelas, asesoría técnica con laboratoristas y atención
+          para empresas y particulares en toda la Quinta Región.
         </p>
 
         <div className="hero__actions">
@@ -42,33 +59,39 @@ export default function Hero() {
             rel="noopener noreferrer"
           >
             <WhatsAppIcon size={20} />
-            Pedir cotización
+            Cotizar por WhatsApp
           </a>
-          <a href="#servicios" className="btn btn-outline">
-            Conocer servicios
+          <a href="#ubicacion" className="btn btn-outline">
+            Ver mapa y cobertura
             <ArrowRight size={18} />
           </a>
         </div>
 
         <div className="hero__stats">
-          <div className="hero__stat">
-            <span className="hero__stat-number">500+</span>
-            <span className="hero__stat-label">Proyectos Entregados</span>
-          </div>
-          <div className="hero__stat-divider" />
-          <div className="hero__stat">
-            <span className="hero__stat-number">10+</span>
-            <span className="hero__stat-label">Años de Experiencia</span>
-          </div>
-          <div className="hero__stat-divider" />
-          <div className="hero__stat">
-            <span className="hero__stat-number">100%</span>
-            <span className="hero__stat-label">Compromiso</span>
-          </div>
+          {heroStats.map((stat, index) => (
+            <Fragment key={stat.label}>
+              <div className="hero__stat">
+                <span className="hero__stat-number">{stat.value}</span>
+                <span className="hero__stat-label">{stat.label}</span>
+              </div>
+              {index < heroStats.length - 1 ? (
+                <div className="hero__stat-divider" aria-hidden="true" />
+              ) : null}
+            </Fragment>
+          ))}
         </div>
+
+        <p className="hero__subtitle hero__subtitle--micro">
+          Referencia operativa: {CONTACT_INFO.deliveryTime}. Pagos por efectivo,
+          transferencia, débito y crédito.
+        </p>
       </div>
 
-      <a href="#nosotros" className="hero__scroll" aria-label="Ir a la sección Quiénes Somos">
+      <a
+        href="#nosotros"
+        className="hero__scroll"
+        aria-label="Ir a la sección Quiénes Somos"
+      >
         <ChevronDown size={24} />
       </a>
 

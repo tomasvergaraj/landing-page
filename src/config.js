@@ -3,10 +3,28 @@
    Edita estos valores para personalizar la web
    ============================================ */
 
+const FULL_ADDRESS =
+  'Hijuelas Maitenes - Bugueño Hormigones, sitio 3 Lote B, 2310000 Hijuelas, Valparaíso';
+
+const LOCATION_COORDINATES = {
+  lat: -32.8463889,
+  lng: -71.0925556,
+};
+
+const MAP_QUERY = encodeURIComponent(
+  `${LOCATION_COORDINATES.lat},${LOCATION_COORDINATES.lng}`,
+);
+
 export const SITE_CONFIG = {
-  companyName: 'Bugue\u00f1o Hormigones',
-  tagline: 'Hormig\u00f3n de calidad para tus proyectos',
-  slogan: 'Compromiso, resistencia y puntualidad en cada entrega',
+  companyName: 'Bugueño Hormigones',
+  alternateNames: [
+    'Bugueño Hormigones V Región',
+    'Bugueño Hormigones Quinta Región',
+    'Bugueño Hormigones Valparaíso',
+  ],
+  tagline: 'Planta certificada y hormigones certificados',
+  slogan:
+    'Diferentes tipos de hormigón, asesoría técnica y despacho coordinado para toda la Quinta Región.',
   logoPath: '/logo-horizontal.png',
 };
 
@@ -15,18 +33,25 @@ export const SEO_CONFIG = {
   locale: 'es_CL',
   countryCode: 'CL',
   siteUrl: '',
-  defaultTitle:
-    'Bugue\u00f1o Hormigones | Hormig\u00f3n premezclado desde Hijuelas',
+  defaultTitle: 'Bugueño Hormigones V Región | Planta certificada en Hijuelas',
   defaultDescription:
-    'Hormig\u00f3n premezclado desde Hijuelas para obras en toda la Quinta Regi\u00f3n. Despacho a obra, asesor\u00eda t\u00e9cnica y cotizaci\u00f3n por WhatsApp.',
+    'Bugueño Hormigones V Región: planta certificada y hormigones certificados en Hijuelas. Diferentes tipos de hormigón, asesoría técnica con laboratoristas, entregas coordinadas y cobertura en toda la Quinta Región.',
+  keywords: [
+    'Bugueño Hormigones V Región',
+    'Bugueño Hormigones Quinta Región',
+    'Bugueño Hormigones Valparaíso',
+    'hormigón V Región',
+    'hormigón Quinta Región',
+    'hormigones certificados Hijuelas',
+  ],
   ogImagePath: '/logo.png',
   themeColor: '#0A0A0A',
-  serviceAreas: ['Hijuelas', 'Quinta Regi\u00f3n', 'Regi\u00f3n de Valpara\u00edso'],
+  serviceAreas: ['Hijuelas', 'Quinta Región', 'Región de Valparaíso'],
   openingHours: [
     {
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
       opens: '08:00',
-      closes: '18:00',
+      closes: '17:30',
     },
     {
       dayOfWeek: ['Saturday'],
@@ -40,19 +65,57 @@ export const CONTACT_INFO = {
   phone: '+56 9 9047 8670',
   phoneClean: '56990478670',
   whatsapp: '56990478670',
-  whatsappMessage: 'Hola, me gustar\u00eda cotizar hormig\u00f3n para mi proyecto.',
-  email: 'contacto@buguenohormigones.cl',
-  address: 'Hijuelas, Regi\u00f3n de Valpara\u00edso, Chile',
+  whatsappMessage: 'Hola, me gustaría cotizar hormigón para mi proyecto.',
+  email: 'buguenohormigones@gmail.com',
+  address: FULL_ADDRESS,
   city: 'Hijuelas',
-  region: 'Valpara\u00edso',
-  schedule: 'Lunes a Viernes: 08:00 - 18:00 | S\u00e1bados: 08:00 - 13:00',
+  region: 'Valparaíso',
+  schedule: 'Lunes a viernes: 08:00 - 17:30 | Sábados: 08:00 - 13:00',
+  weekdayHours: 'Lunes a viernes: 08:00 a 17:30',
+  saturdayHours: 'Sábados: 08:00 a 13:00',
+  coverage: 'Toda la Quinta Región',
+  deliveryTime: '20 minutos por metro cúbico',
+  payments: [
+    'Efectivo',
+    'Transferencia',
+    'Tarjetas de débito',
+    'Tarjetas de crédito',
+  ],
+  customerTypes: ['Empresas', 'Particulares'],
 };
 
-export const SOCIAL_LINKS = {
-  facebook: 'https://www.facebook.com/buguenohormigones',
-  instagram: 'https://www.instagram.com/buguenohormigones',
-  tiktok: 'https://www.tiktok.com/@buguenohormigones',
+export const BUSINESS_FEATURES = [
+  {
+    title: 'Planta certificada',
+    description:
+      'Operación respaldada por una planta certificada para trabajar con mayor confianza desde la coordinación inicial.',
+  },
+  {
+    title: 'Hormigones certificados',
+    description:
+      'Ofrecemos hormigones certificados para distintos requerimientos de obra y distintos tipos de vaciado.',
+  },
+  {
+    title: 'Asesoría con laboratoristas',
+    description:
+      'Apoyo técnico para orientar la selección del hormigón y resolver dudas en cada proyecto.',
+  },
+  {
+    title: 'Cobertura regional',
+    description:
+      'Despachamos desde Hijuelas y atendemos obras en toda la Quinta Región.',
+  },
+];
+
+export const LOCATION_INFO = {
+  coordinates: LOCATION_COORDINATES,
+  mapsUrl: `https://www.google.com/maps/search/?api=1&query=${MAP_QUERY}`,
+  mapEmbedUrl: `https://www.google.com/maps?q=${MAP_QUERY}&z=15&output=embed`,
+  reviewUrl: 'https://g.page/r/CcEMcB7FzC9LEBI/review',
+  reviewQrPath: '/descarga.png',
 };
+
+export const SOCIAL_LINKS = {};
 
 export const getWhatsAppLink = (message) => {
   const msg = encodeURIComponent(message || CONTACT_INFO.whatsappMessage);
@@ -61,3 +124,5 @@ export const getWhatsAppLink = (message) => {
 
 export const getPhoneLink = () => `tel:${CONTACT_INFO.phoneClean}`;
 export const getEmailLink = () => `mailto:${CONTACT_INFO.email}`;
+export const getMapsLink = () => LOCATION_INFO.mapsUrl;
+export const getReviewLink = () => LOCATION_INFO.reviewUrl;

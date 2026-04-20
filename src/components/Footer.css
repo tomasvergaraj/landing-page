@@ -108,8 +108,15 @@
   color: var(--gold);
 }
 
-.footer__wa-btn {
-  margin-top: 16px;
+.footer__actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.footer__actions .btn {
+  width: 100%;
 }
 
 .footer__bottom {
@@ -148,5 +155,8 @@
 
   .footer__logo {
     width: 200px;
+  }
+  .footer__actions .btn {
+    width: 100%;
   }
 }

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import {
   CONTACT_INFO,
+  LOCATION_INFO,
   SEO_CONFIG,
   SITE_CONFIG,
   SOCIAL_LINKS,
@@ -67,6 +68,75 @@ function normalizeExternalUrl(value) {
 }
 
 function buildStructuredData({ canonicalUrl, imageUrl, socialLinks }) {
+  const organization = {
+    '@type': 'Organization',
+    '@id': `${canonicalUrl}#organization`,
+    name: SITE_CONFIG.companyName,
+    alternateName: SITE_CONFIG.alternateNames,
+    url: canonicalUrl,
+    logo: imageUrl,
+    image: imageUrl,
+  };
+
+  if (socialLinks.length) {
+    organization.sameAs = socialLinks;
+  }
+
+  const localBusiness = {
+    '@type': 'LocalBusiness',
+    '@id': `${canonicalUrl}#localbusiness`,
+    name: SITE_CONFIG.companyName,
+    alternateName: SITE_CONFIG.alternateNames,
+    url: canonicalUrl,
+    image: imageUrl,
+    logo: imageUrl,
+    description: SEO_CONFIG.defaultDescription,
+    telephone: CONTACT_INFO.phone,
+    email: CONTACT_INFO.email,
+    hasMap: LOCATION_INFO.mapsUrl,
+    paymentAccepted: CONTACT_INFO.payments.join(', '),
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: LOCATION_INFO.coordinates.lat,
+      longitude: LOCATION_INFO.coordinates.lng,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: CONTACT_INFO.address,
+      addressLocality: CONTACT_INFO.city,
+      addressRegion: CONTACT_INFO.region,
+      addressCountry: SEO_CONFIG.countryCode,
+    },
+    areaServed: SEO_CONFIG.serviceAreas,
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        telephone: CONTACT_INFO.phone,
+        email: CONTACT_INFO.email,
+        availableLanguage: ['es', SEO_CONFIG.language],
+      },
+    ],
+    openingHoursSpecification: SEO_CONFIG.openingHours.map((entry) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: entry.dayOfWeek,
+      opens: entry.opens,
+      closes: entry.closes,
+    })),
+    makesOffer: serviceItems.map((service) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: service.title,
+        description: service.description,
+      },
+    })),
+  };
+
+  if (socialLinks.length) {
+    localBusiness.sameAs = socialLinks;
+  }
+
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -75,61 +145,12 @@ function buildStructuredData({ canonicalUrl, imageUrl, socialLinks }) {
         '@id': `${canonicalUrl}#website`,
         url: canonicalUrl,
         name: SITE_CONFIG.companyName,
+        alternateName: SITE_CONFIG.alternateNames,
         inLanguage: SEO_CONFIG.language,
         description: SEO_CONFIG.defaultDescription,
       },
-      {
-        '@type': 'Organization',
-        '@id': `${canonicalUrl}#organization`,
-        name: SITE_CONFIG.companyName,
-        url: canonicalUrl,
-        logo: imageUrl,
-        image: imageUrl,
-        sameAs: socialLinks,
-      },
-      {
-        '@type': 'LocalBusiness',
-        '@id': `${canonicalUrl}#localbusiness`,
-        name: SITE_CONFIG.companyName,
-        url: canonicalUrl,
-        image: imageUrl,
-        logo: imageUrl,
-        description: SEO_CONFIG.defaultDescription,
-        telephone: CONTACT_INFO.phone,
-        email: CONTACT_INFO.email,
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: CONTACT_INFO.address,
-          addressLocality: CONTACT_INFO.city,
-          addressRegion: CONTACT_INFO.region,
-          addressCountry: SEO_CONFIG.countryCode,
-        },
-        areaServed: SEO_CONFIG.serviceAreas,
-        sameAs: socialLinks,
-        contactPoint: [
-          {
-            '@type': 'ContactPoint',
-            contactType: 'customer service',
-            telephone: CONTACT_INFO.phone,
-            email: CONTACT_INFO.email,
-            availableLanguage: ['es', SEO_CONFIG.language],
-          },
-        ],
-        openingHoursSpecification: SEO_CONFIG.openingHours.map((entry) => ({
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: entry.dayOfWeek,
-          opens: entry.opens,
-          closes: entry.closes,
-        })),
-        makesOffer: serviceItems.map((service) => ({
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: service.title,
-            description: service.description,
-          },
-        })),
-      },
+      organization,
+      localBusiness,
       {
         '@type': 'FAQPage',
         '@id': `${canonicalUrl}#faq`,
@@ -174,6 +195,10 @@ export default function SEO() {
     upsertMeta('meta[name="author"]', {
       name: 'author',
       content: SITE_CONFIG.companyName,
+    });
+    upsertMeta('meta[name="keywords"]', {
+      name: 'keywords',
+      content: SEO_CONFIG.keywords.join(', '),
     });
     upsertMeta('meta[name="theme-color"]', {
       name: 'theme-color',

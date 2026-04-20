@@ -6,6 +6,7 @@ import Benefits from './components/Benefits';
 import Process from './components/Process';
 import SEO from './components/SEO';
 import Trust from './components/Trust';
+import ProjectGallery from './components/ProjectGallery';
 import Gallery from './components/Gallery';
 import FAQ from './components/FAQ';
 import CTA from './components/CTA';
@@ -24,6 +25,7 @@ export default function App() {
         <Benefits />
         <Process />
         <Trust />
+        <ProjectGallery />
         <Gallery />
         <FAQ />
         <CTA />

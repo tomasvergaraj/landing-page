@@ -1,45 +1,33 @@
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  Facebook,
-  Instagram,
-} from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Star, MapPinned } from 'lucide-react';
 import {
   SITE_CONFIG,
   CONTACT_INFO,
-  SOCIAL_LINKS,
-  getWhatsAppLink,
-  getPhoneLink,
   getEmailLink,
+  getMapsLink,
+  getPhoneLink,
+  getReviewLink,
+  getWhatsAppLink,
 } from '../config';
 import WhatsAppIcon from './WhatsAppIcon';
 import './Footer.css';
-
-function TikTokIcon({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.88-2.88 2.89 2.89 0 012.88-2.88c.28 0 .56.04.81.1v-3.5a6.37 6.37 0 00-.81-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.28 8.28 0 004.76 1.5V6.79a4.83 4.83 0 01-1-.1z" />
-    </svg>
-  );
-}
 
 const quickLinks = [
   { label: 'Ir al inicio', href: '#hero' },
   { label: 'Conoce la empresa', href: '#nosotros' },
   { label: 'Explorar servicios', href: '#servicios' },
-  { label: 'Ver ventajas', href: '#beneficios' },
-  { label: 'Cómo trabajamos', href: '#proceso' },
-  { label: 'Ver proyectos', href: '#proyectos' },
+  { label: 'Ver respaldo', href: '#respaldo' },
+  { label: 'Ver galería', href: '#proyectos' },
+  { label: 'Abrir ubicación', href: '#ubicacion' },
+  { label: 'Resolver dudas', href: '#faq' },
 ];
 
 const serviceLinks = [
-  'Venta de Hormigón',
-  'Despacho a Obra',
-  'Proyectos Habitacionales',
-  'Asesoría Técnica',
-  'Obras Menores y Mayores',
+  { label: 'Tipos de hormigón', href: '#servicios' },
+  { label: 'Asesoría técnica', href: '#respaldo' },
+  { label: 'Fotos de obras', href: '#proyectos' },
+  { label: 'Empresas y particulares', href: '#beneficios' },
+  { label: 'Cobertura Quinta Región', href: '#ubicacion' },
+  { label: 'Todo medio de pago', href: '#ubicacion' },
 ];
 
 export default function Footer() {
@@ -57,18 +45,29 @@ export default function Footer() {
                 className="footer__logo"
               />
               <p className="footer__brand-text">
-                Empresa especializada en la producción y despacho de hormigón premezclado
-                de alta calidad. Compromiso, experiencia y servicio profesional para cada proyecto.
+                Planta certificada y hormigones certificados, con despacho
+                coordinado, apoyo técnico y cobertura en toda la Quinta
+                Región.
               </p>
               <div className="footer__social">
-                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                  <Facebook size={18} />
+                <a
+                  href={getMapsLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Abrir ubicación en Google Maps"
+                >
+                  <MapPinned size={18} />
                 </a>
-                <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                  <Instagram size={18} />
+                <a
+                  href={getReviewLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Abrir enlace de opinión"
+                >
+                  <Star size={18} />
                 </a>
-                <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                  <TikTokIcon size={18} />
+                <a href={getEmailLink()} aria-label="Enviar correo">
+                  <Mail size={18} />
                 </a>
                 <a
                   href={getWhatsAppLink()}
@@ -96,8 +95,8 @@ export default function Footer() {
               <p className="footer__col-title">Servicios</p>
               <ul className="footer__links">
                 {serviceLinks.map((service) => (
-                  <li key={service}>
-                    <a href="#servicios">{service}</a>
+                  <li key={service.label}>
+                    <a href={service.href}>{service.label}</a>
                   </li>
                 ))}
               </ul>
@@ -123,15 +122,27 @@ export default function Footer() {
                   <span>{CONTACT_INFO.schedule}</span>
                 </li>
               </ul>
-              <a
-                href={getWhatsAppLink()}
-                className="btn btn-whatsapp btn-sm footer__wa-btn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <WhatsAppIcon size={16} />
-                Cotizar por WhatsApp
-              </a>
+
+              <div className="footer__actions">
+                <a
+                  href={getWhatsAppLink()}
+                  className="btn btn-whatsapp btn-sm footer__wa-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <WhatsAppIcon size={16} />
+                  Cotizar por WhatsApp
+                </a>
+                <a
+                  href={getReviewLink()}
+                  className="btn btn-outline btn-sm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Star size={16} />
+                  Dejar opinión
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -140,7 +151,8 @@ export default function Footer() {
       <div className="footer__bottom">
         <div className="container">
           <p>
-            © {currentYear} {SITE_CONFIG.companyName}. Todos los derechos reservados.
+            © {currentYear} {SITE_CONFIG.companyName}. Atención desde
+            Hijuelas para toda la Quinta Región.
           </p>
         </div>
       </div>

@@ -3,10 +3,10 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import './About.css';
 
 const highlights = [
-  { icon: Shield, label: 'Calidad Garantizada' },
-  { icon: Award, label: 'Experiencia Comprobada' },
-  { icon: Users, label: 'Atención Personalizada' },
-  { icon: Clock, label: 'Entregas Puntuales' },
+  { icon: Shield, label: 'Planta certificada' },
+  { icon: Award, label: 'Hormigones certificados' },
+  { icon: Users, label: 'Empresas y particulares' },
+  { icon: Clock, label: 'Asesoría con laboratoristas' },
 ];
 
 export default function About() {
@@ -31,10 +31,19 @@ export default function About() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   >
-                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-                    <polyline points="9 22 9 12 15 12 15 22" />
+                    <path d="M3 10h18" />
+                    <path d="M5 10V7a2 2 0 012-2h10a2 2 0 012 2v3" />
+                    <path d="M6 14h12" />
+                    <path d="M8 18h8" />
+                    <path d="M10 10v8" />
+                    <path d="M14 10v8" />
                   </svg>
-                  <span>Imagen de la empresa</span>
+                  <strong className="about__image-kicker">Desde Hijuelas</strong>
+                  <span>Despachamos a toda la Quinta Región</span>
+                  <p className="about__image-copy">
+                    Servicio directo para empresas y particulares con apoyo técnico
+                    y coordinación de entrega.
+                  </p>
                 </div>
               </div>
             </div>
@@ -51,25 +60,23 @@ export default function About() {
           <div className="about__text-col">
             <span className="section-label">Quiénes Somos</span>
             <h2 className="about__title">
-              Más de una década construyendo <span>confianza</span>
+              Respaldo técnico y servicio <span>para cada vaciado</span>
             </h2>
             <div className="gold-line" style={{ margin: '20px 0' }} />
             <p className="about__text">
-              <strong>Bugueño Hormigones</strong> es una empresa especializada en la producción y
-              despacho de hormigón premezclado de alta calidad. Con más de 10 años de experiencia
-              en el rubro de la construcción, nos hemos consolidado como un referente confiable
-              para constructoras, contratistas y particulares.
+              <strong>Bugueño Hormigones</strong> cuenta con planta certificada y
+              hormigones certificados, entregando un respaldo real para proyectos que
+              necesitan continuidad, coordinación y confianza.
             </p>
             <p className="about__text">
-              Nuestro compromiso va más allá de entregar un producto: ofrecemos una experiencia
-              completa de servicio, desde la asesoría técnica inicial hasta el seguimiento posterior
-              a la entrega. Cada metro cúbico que despachamos lleva el respaldo de procesos
-              rigurosos de calidad y un equipo humano altamente comprometido.
+              Ofrecemos diferentes tipos de hormigón y coordinamos despachos desde
+              Hijuelas hacia toda la Quinta Región. Como referencia operativa,
+              trabajamos con tiempos de entrega de 20 minutos por metro cúbico.
             </p>
             <p className="about__text">
-              Nos diferenciamos por nuestra puntualidad, flexibilidad y atención personalizada.
-              Entendemos que cada proyecto tiene necesidades únicas, y adaptamos nuestro servicio
-              para garantizar que tu obra avance sin contratiempos.
+              Atendemos a empresas y particulares, aceptamos efectivo, transferencia,
+              tarjetas de débito y crédito, y complementamos el servicio con
+              asesoría técnica a través de laboratoristas.
             </p>
           </div>
         </div>

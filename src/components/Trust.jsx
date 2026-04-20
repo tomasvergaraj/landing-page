@@ -1,25 +1,50 @@
-import { Quote, Star } from 'lucide-react';
+import {
+  ShieldCheck,
+  ClipboardCheck,
+  Building2,
+  MapPin,
+  CreditCard,
+  CheckCircle2,
+} from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import './Trust.css';
 
-const testimonials = [
+const trustPoints = [
   {
-    text: 'Excelente servicio y puntualidad. El hormigón llegó en perfectas condiciones y el equipo fue muy profesional en todo momento. Sin duda volveremos a trabajar con ellos.',
-    author: 'Carlos M.',
-    role: 'Contratista de Obras',
-    rating: 5,
+    icon: ShieldCheck,
+    title: 'Calidad certificada',
+    description:
+      'Planta certificada y hormigones certificados para trabajar con mayor respaldo desde el inicio.',
   },
   {
-    text: 'Bugueño Hormigones nos ha acompañado en varios proyectos habitacionales. Su compromiso con la calidad y los plazos los convierte en un proveedor confiable para nuestra constructora.',
-    author: 'Daniela R.',
-    role: 'Jefa de Proyectos',
-    rating: 5,
+    icon: ClipboardCheck,
+    title: 'Asesoría técnica',
+    description:
+      'Apoyo de laboratoristas para orientar la selección del hormigón y revisar necesidades del proyecto.',
   },
   {
-    text: 'La asesoría técnica que nos dieron fue clave para elegir el hormigón correcto. Muy buena comunicación desde la cotización hasta la entrega. Totalmente recomendados.',
-    author: 'Roberto L.',
-    role: 'Maestro de Obra',
-    rating: 5,
+    icon: Building2,
+    title: 'Atención amplia',
+    description:
+      'Atendemos a empresas y particulares, adaptando la coordinación a cada tipo de obra.',
+  },
+  {
+    icon: MapPin,
+    title: 'Cobertura en la región',
+    description:
+      'Despachamos en toda la Quinta Región desde nuestra ubicación en Hijuelas.',
+  },
+  {
+    icon: CreditCard,
+    title: 'Todo medio de pago',
+    description:
+      'Recibimos efectivo, transferencia, tarjetas de débito y tarjetas de crédito.',
+  },
+  {
+    icon: CheckCircle2,
+    title: 'Entrega coordinada',
+    description:
+      'Trabajamos con una referencia de 20 minutos por metro cúbico para ordenar mejor cada despacho.',
   },
 ];
 
@@ -27,45 +52,36 @@ export default function Trust() {
   const [ref, visible] = useScrollAnimation();
 
   return (
-    <section id="testimonios" className="trust section">
+    <section id="respaldo" className="trust section">
       <div className="pattern-overlay" />
       <div className="container">
         <div className="section-header">
-          <span className="section-label">Confianza y Respaldo</span>
-          <h2 className="section-title">Lo Que Dicen Nuestros Clientes</h2>
+          <span className="section-label">Respaldo real</span>
+          <h2 className="section-title">Lo que hoy puedes resolver con nosotros</h2>
           <p className="section-subtitle">
-            La satisfacción de nuestros clientes es el mejor reflejo de nuestro trabajo.
-            Cada proyecto es una oportunidad para demostrar nuestro compromiso.
+            Esta es la información operativa y comercial que concentra el
+            servicio actual de Bugueño Hormigones.
           </p>
         </div>
 
         <div className="trust__grid" ref={ref}>
-          {testimonials.map((testimonial, i) => (
-            <div
-              key={i}
-              className={`trust__card ${visible ? 'visible' : ''}`}
-              style={{ transitionDelay: `${i * 0.1}s` }}
-            >
-              <div className="trust__card-quote">
-                <Quote size={24} />
-              </div>
-              <div className="trust__card-stars">
-                {Array.from({ length: testimonial.rating }).map((_, si) => (
-                  <Star key={si} size={14} fill="var(--gold)" color="var(--gold)" />
-                ))}
-              </div>
-              <p className="trust__card-text">{testimonial.text}</p>
-              <div className="trust__card-author">
-                <div className="trust__card-avatar">
-                  {testimonial.author.charAt(0)}
+          {trustPoints.map((item, i) => {
+            const Icon = item.icon;
+
+            return (
+              <div
+                key={item.title}
+                className={`trust__card ${visible ? 'visible' : ''}`}
+                style={{ transitionDelay: `${i * 0.1}s` }}
+              >
+                <div className="trust__card-icon">
+                  <Icon size={24} />
                 </div>
-                <div>
-                  <strong>{testimonial.author}</strong>
-                  <span>{testimonial.role}</span>
-                </div>
+                <p className="trust__card-title">{item.title}</p>
+                <p className="trust__card-text">{item.description}</p>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
