@@ -161,7 +161,12 @@ export default function SEO() {
     upsertLink('link[rel="icon"]', {
       rel: 'icon',
       type: 'image/png',
-      sizes: '512x512',
+      sizes: `${SEO_CONFIG.organizationLogoWidth}x${SEO_CONFIG.organizationLogoHeight}`,
+      href: faviconUrl,
+    });
+    upsertLink('link[rel="shortcut icon"]', {
+      rel: 'shortcut icon',
+      type: 'image/png',
       href: faviconUrl,
     });
     upsertLink('link[rel="apple-touch-icon"]', {
