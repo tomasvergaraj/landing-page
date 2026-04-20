@@ -4,7 +4,7 @@
    ============================================ */
 
 const FULL_ADDRESS =
-  'Hijuelas Maitenes - Bugueño Hormigones, sitio 3 Lote B, 2310000 Hijuelas, Valparaíso';
+  'Hijuelas Maitenes - Bugueño Hormigones, sitio 2, 2310000 Hijuelas, Valparaíso';
 
 const LOCATION_COORDINATES = {
   lat: -32.8463889,
