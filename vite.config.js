@@ -2,10 +2,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
-
-function normalizeSiteUrl(value) {
-  return (value || '').trim().replace(/\/+$/, '');
-}
+import { SEO_CONFIG } from './src/config.js';
+import {
+  buildStructuredData,
+  getSocialLinks,
+  normalizeAbsoluteUrl,
+  normalizeSiteUrl,
+} from './src/seo.js';
 
 function buildRobots(siteUrl) {
   const lines = ['User-agent: *', 'Allow: /'];
@@ -34,6 +37,21 @@ function buildSitemap(siteUrl) {
   ].join('\n');
 }
 
+function buildStaticStructuredData(siteUrl) {
+  const canonicalUrl = `${siteUrl}/`;
+  const logoUrl = normalizeAbsoluteUrl(SEO_CONFIG.organizationLogoPath, siteUrl);
+  const imageUrl = normalizeAbsoluteUrl(SEO_CONFIG.ogImagePath, siteUrl);
+
+  return JSON.stringify(
+    buildStructuredData({
+      canonicalUrl,
+      logoUrl,
+      imageUrl,
+      socialLinks: getSocialLinks(),
+    }),
+  ).replace(/</g, '\\u003c');
+}
+
 function seoFilesPlugin(siteUrl) {
   return {
     name: 'seo-files',
@@ -42,7 +60,8 @@ function seoFilesPlugin(siteUrl) {
         return html;
       }
 
-      const absoluteLogoUrl = `${siteUrl}/logo.png`;
+      const absoluteLogoUrl = normalizeAbsoluteUrl(SEO_CONFIG.ogImagePath, siteUrl);
+      const structuredData = buildStaticStructuredData(siteUrl);
 
       return html
         .replace(
@@ -64,6 +83,7 @@ function seoFilesPlugin(siteUrl) {
             `    <link rel="alternate" hreflang="es-CL" href="${siteUrl}/">`,
             `    <link rel="alternate" hreflang="x-default" href="${siteUrl}/">`,
             `    <meta property="og:url" content="${siteUrl}/">`,
+            `    <script type="application/ld+json" data-seo-id="structured-data">${structuredData}</script>`,
             '  </head>',
           ].join('\n'),
         );

@@ -1,13 +1,11 @@
 import { useEffect } from 'react';
+import { SEO_CONFIG, SITE_CONFIG } from '../config';
 import {
-  CONTACT_INFO,
-  LOCATION_INFO,
-  SEO_CONFIG,
-  SITE_CONFIG,
-  SOCIAL_LINKS,
-} from '../config';
-import { faqs } from '../content/faqs';
-import { serviceItems } from '../content/services';
+  buildStructuredData,
+  getSocialLinks,
+  normalizeAbsoluteUrl,
+  normalizeSiteUrl,
+} from '../seo';
 
 function upsertMeta(selector, attributes) {
   let element = document.head.querySelector(selector);
@@ -48,134 +46,21 @@ function upsertJsonLd(id, graph) {
   script.textContent = JSON.stringify(graph);
 }
 
-function normalizeSiteUrl() {
-  const configuredSiteUrl = SEO_CONFIG.siteUrl.trim();
-  const baseUrl = configuredSiteUrl || window.location.origin;
-
-  return baseUrl.replace(/\/+$/, '');
-}
-
-function normalizeAbsoluteUrl(pathname, siteUrl) {
-  return new URL(pathname, `${siteUrl}/`).toString();
-}
-
-function normalizeExternalUrl(value) {
-  try {
-    return new URL(value).toString();
-  } catch {
-    return null;
-  }
-}
-
-function buildStructuredData({ canonicalUrl, imageUrl, socialLinks }) {
-  const organization = {
-    '@type': 'Organization',
-    '@id': `${canonicalUrl}#organization`,
-    name: SITE_CONFIG.companyName,
-    alternateName: SITE_CONFIG.alternateNames,
-    url: canonicalUrl,
-    logo: imageUrl,
-    image: imageUrl,
-  };
-
-  if (socialLinks.length) {
-    organization.sameAs = socialLinks;
-  }
-
-  const localBusiness = {
-    '@type': 'LocalBusiness',
-    '@id': `${canonicalUrl}#localbusiness`,
-    name: SITE_CONFIG.companyName,
-    alternateName: SITE_CONFIG.alternateNames,
-    url: canonicalUrl,
-    image: imageUrl,
-    logo: imageUrl,
-    description: SEO_CONFIG.defaultDescription,
-    telephone: CONTACT_INFO.phone,
-    email: CONTACT_INFO.email,
-    hasMap: LOCATION_INFO.mapsUrl,
-    paymentAccepted: CONTACT_INFO.payments.join(', '),
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: LOCATION_INFO.coordinates.lat,
-      longitude: LOCATION_INFO.coordinates.lng,
-    },
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: CONTACT_INFO.address,
-      addressLocality: CONTACT_INFO.city,
-      addressRegion: CONTACT_INFO.region,
-      addressCountry: SEO_CONFIG.countryCode,
-    },
-    areaServed: SEO_CONFIG.serviceAreas,
-    contactPoint: [
-      {
-        '@type': 'ContactPoint',
-        contactType: 'customer service',
-        telephone: CONTACT_INFO.phone,
-        email: CONTACT_INFO.email,
-        availableLanguage: ['es', SEO_CONFIG.language],
-      },
-    ],
-    openingHoursSpecification: SEO_CONFIG.openingHours.map((entry) => ({
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: entry.dayOfWeek,
-      opens: entry.opens,
-      closes: entry.closes,
-    })),
-    makesOffer: serviceItems.map((service) => ({
-      '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: service.title,
-        description: service.description,
-      },
-    })),
-  };
-
-  if (socialLinks.length) {
-    localBusiness.sameAs = socialLinks;
-  }
-
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'WebSite',
-        '@id': `${canonicalUrl}#website`,
-        url: canonicalUrl,
-        name: SITE_CONFIG.companyName,
-        alternateName: SITE_CONFIG.alternateNames,
-        inLanguage: SEO_CONFIG.language,
-        description: SEO_CONFIG.defaultDescription,
-      },
-      organization,
-      localBusiness,
-      {
-        '@type': 'FAQPage',
-        '@id': `${canonicalUrl}#faq`,
-        url: `${canonicalUrl}#faq`,
-        mainEntity: faqs.map((faq) => ({
-          '@type': 'Question',
-          name: faq.q,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: faq.a,
-          },
-        })),
-      },
-    ],
-  };
-}
-
 export default function SEO() {
   useEffect(() => {
-    const siteUrl = normalizeSiteUrl();
+    const siteUrl = normalizeSiteUrl(SEO_CONFIG.siteUrl || window.location.origin);
     const canonicalUrl = normalizeAbsoluteUrl(window.location.pathname, siteUrl);
     const imageUrl = normalizeAbsoluteUrl(SEO_CONFIG.ogImagePath, siteUrl);
-    const socialLinks = Object.values(SOCIAL_LINKS)
-      .map(normalizeExternalUrl)
-      .filter(Boolean);
+    const logoUrl = normalizeAbsoluteUrl(
+      SEO_CONFIG.organizationLogoPath,
+      siteUrl,
+    );
+    const faviconUrl = normalizeAbsoluteUrl(SEO_CONFIG.faviconPath, siteUrl);
+    const appleTouchIconUrl = normalizeAbsoluteUrl(
+      SEO_CONFIG.appleTouchIconPath,
+      siteUrl,
+    );
+    const socialLinks = getSocialLinks();
 
     document.documentElement.lang = SEO_CONFIG.language;
     document.title = SEO_CONFIG.defaultTitle;
@@ -273,6 +158,16 @@ export default function SEO() {
       content: `${SITE_CONFIG.companyName} logo`,
     });
 
+    upsertLink('link[rel="icon"]', {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '512x512',
+      href: faviconUrl,
+    });
+    upsertLink('link[rel="apple-touch-icon"]', {
+      rel: 'apple-touch-icon',
+      href: appleTouchIconUrl,
+    });
     upsertLink('link[rel="canonical"]', {
       rel: 'canonical',
       href: canonicalUrl,
@@ -290,7 +185,7 @@ export default function SEO() {
 
     upsertJsonLd(
       'structured-data',
-      buildStructuredData({ canonicalUrl, imageUrl, socialLinks }),
+      buildStructuredData({ canonicalUrl, logoUrl, imageUrl, socialLinks }),
     );
   }, []);
 

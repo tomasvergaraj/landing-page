@@ -28,11 +28,16 @@ export const SITE_CONFIG = {
   logoPath: '/logo-horizontal.png',
 };
 
+const ENV_SITE_URL =
+  (typeof import.meta !== 'undefined' &&
+    (import.meta.env?.VITE_SITE_URL || import.meta.env?.SITE_URL)) ||
+  '';
+
 export const SEO_CONFIG = {
   language: 'es-CL',
   locale: 'es_CL',
   countryCode: 'CL',
-  siteUrl: '',
+  siteUrl: ENV_SITE_URL,
   defaultTitle: 'Bugueño Hormigones V Región | Planta certificada en Hijuelas',
   defaultDescription:
     'Bugueño Hormigones V Región: planta certificada y hormigones certificados en Hijuelas. Diferentes tipos de hormigón, asesoría técnica con laboratoristas, entregas coordinadas y cobertura en toda la Quinta Región.',
@@ -44,6 +49,11 @@ export const SEO_CONFIG = {
     'hormigón Quinta Región',
     'hormigones certificados Hijuelas',
   ],
+  faviconPath: '/logo-cuadrado.png',
+  appleTouchIconPath: '/logo-cuadrado.png',
+  organizationLogoPath: '/logo-cuadrado.png',
+  organizationLogoWidth: 512,
+  organizationLogoHeight: 512,
   ogImagePath: '/logo.png',
   themeColor: '#0A0A0A',
   serviceAreas: ['Hijuelas', 'Quinta Región', 'Región de Valparaíso'],
