@@ -125,11 +125,31 @@
   text-align: center;
 }
 
+.footer__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 .footer__bottom p {
   font-size: 0.82rem;
   color: var(--gray-600);
   font-weight: 300;
   letter-spacing: 0.3px;
+}
+
+.footer__credit {
+  font-size: 0.76rem;
+  color: var(--gray-600);
+}
+
+.footer__credit a {
+  color: var(--gray-400);
+  transition: color var(--transition-fast);
+}
+
+.footer__credit a:hover {
+  color: var(--gold);
 }
 
 @media (max-width: 900px) {

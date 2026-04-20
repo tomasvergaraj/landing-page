@@ -73,7 +73,7 @@ export default function Footer() {
                   href={getWhatsAppLink()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Escribir por WhatsApp a Bugueño Hormigones"
+                  aria-label={`Escribir por WhatsApp a ${SITE_CONFIG.companyName}`}
                 >
                   <WhatsAppIcon size={18} />
                 </a>
@@ -150,10 +150,21 @@ export default function Footer() {
 
       <div className="footer__bottom">
         <div className="container">
-          <p>
-            © {currentYear} {SITE_CONFIG.companyName}. Atención desde
-            Hijuelas para toda la Quinta Región.
-          </p>
+          <div className="footer__meta">
+            <p>
+              © {currentYear} {SITE_CONFIG.companyName}. Atención desde Hijuelas para toda la Quinta Región.
+            </p>
+            <p className="footer__credit">
+              Desarrollo web por{' '}
+              <a
+                href="https://nexosoftware.cl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Nexo Software SpA
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
